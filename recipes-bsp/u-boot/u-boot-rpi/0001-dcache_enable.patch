@@ -1,0 +1,26 @@
+diff --git a/arch/arm/mach-bcm283x/init.c b/arch/arm/mach-bcm283x/init.c
+index e90d3bb..deb7317 100644
+--- a/arch/arm/mach-bcm283x/init.c
++++ b/arch/arm/mach-bcm283x/init.c
+@@ -22,3 +22,9 @@ int arch_cpu_init(void)
+ 
+ 	return 0;
+ }
++
++void enable_caches(void)
++{
++	dcache_enable();
++}
++
+diff --git a/include/configs/rpi_2.h b/include/configs/rpi_2.h
+index bea4ebd..13dc8de 100644
+--- a/include/configs/rpi_2.h
++++ b/include/configs/rpi_2.h
+@@ -10,7 +10,6 @@
+ #define CONFIG_SKIP_LOWLEVEL_INIT
+ #define CONFIG_BCM2836
+ #define CONFIG_SYS_CACHELINE_SIZE		64
+-#define CONFIG_SYS_DCACHE_OFF
+ 
+ #include "rpi-common.h"
+ 
